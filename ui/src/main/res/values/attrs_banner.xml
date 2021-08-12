@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="attrs">
+        <attr name="areaColor" format="color" />
+        <attr name="cardColor" format="color" />
+        <attr name="selectedDotColor" format="color" />
+        <attr name="unselectedDotColor" format="color" />
+        <attr name="autoLoop" format="boolean" />
+        <attr name="loopInterval" format="integer" />
+        <attr name="roundCorner" format="dimension" />
+        <attr name="loadingImage" format="reference" />
+        <attr name="errorImage" format="reference" />
+        <attr name="appKey" format="string" />
+        <attr name="appSecret" format="string" />
+        <attr name="loader" format="string" />
+        <attr name="debug" format="boolean" />
+        <attr name="test" format="boolean" />
+    </declare-styleable>
+</resources>

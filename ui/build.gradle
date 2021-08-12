@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        minSdk 23
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField("Boolean", "PROD_ENV", 'false')  // 默认关闭正式环境
+        buildConfigField("Boolean", "LOG_OPEN", 'true')  // 默认开启日志开关
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            buildConfigField("Boolean", "PROD_ENV", 'true') // 开启正式环境
+            buildConfigField("Boolean", "LOG_OPEN", 'false') // 关闭日志开关
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField("Boolean", "PROD_ENV", 'false')  // 测试环境
+            buildConfigField("Boolean", "LOG_OPEN", 'true')  // 开启日志开关
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.4.20")
+
+    implementation project(path: ':core')
+    implementation project(path: ':logger')
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}

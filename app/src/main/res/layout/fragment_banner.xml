@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BannerFragment">
+
+    <com.rock.ui.Banner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:areaColor="#ffffff"
+        app:cardColor="#eeeeee"
+        app:selectedDotColor="#88ff00ff"
+        app:unselectedDotColor="#8800ffff"
+        app:autoLoop="true"
+        app:loopInterval="5000"
+        app:roundCorner="8dp"
+        app:loadingImage="@drawable/loading"
+        app:errorImage="@drawable/error"
+        app:loader="com.rock.sample.BannerDataLoader"
+        app:debug="true"
+        app:test="false"
+        />
+
+</FrameLayout>
