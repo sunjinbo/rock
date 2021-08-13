@@ -429,7 +429,7 @@ class Banner : SurfaceView, SurfaceHolder.Callback, Runnable, DataLoader.Callbac
         // Surface is not used anymore - stop the drawing thread
         stopDrawThread()
         // and release the surface
-        holder!!.surface.release()
+        holder.surface.release()
 
         surfaceHolder = null
         surfaceReady = false
@@ -494,7 +494,7 @@ class Banner : SurfaceView, SurfaceHolder.Callback, Runnable, DataLoader.Callbac
      * 加载线上数据成功后调用.
      */
     override fun onDataLoaded(list: MutableList<CardInfo>) {
-        if (list!!.size == 0) { // 没有什么数据，将控件隐藏
+        if (list.size == 0) { // 没有什么数据，将控件隐藏
             // 清除原数据
             offset = 0
             cardList.clear()
@@ -510,7 +510,7 @@ class Banner : SurfaceView, SurfaceHolder.Callback, Runnable, DataLoader.Callbac
         var needUpdate = false
         if (cardList.size == 0) {
             needUpdate = true
-        } else if (cardList.size != list!!.size) {
+        } else if (cardList.size != list.size) {
             needUpdate = true
         } else {
             for (i in cardList.indices) {
@@ -532,7 +532,7 @@ class Banner : SurfaceView, SurfaceHolder.Callback, Runnable, DataLoader.Callbac
                 cardList.clear()
 
                 // 将数据转成card对象
-                for (data in list!!.iterator()) {
+                for (data in list.iterator()) {
                     cardList.add(Card(data, cardList.size))
                 }
             } catch (exception: java.lang.Exception) {
@@ -1024,7 +1024,7 @@ class Banner : SurfaceView, SurfaceHolder.Callback, Runnable, DataLoader.Callbac
         constructor(data: CardInfo?, index: Int) {
             jumpTo = data!!.jumpTo
             cardIndex = index
-            imageUrl = data.urlImage!!
+            imageUrl = data.urlImage
             loadBitmap()
         }
 
@@ -1048,10 +1048,10 @@ class Banner : SurfaceView, SurfaceHolder.Callback, Runnable, DataLoader.Callbac
             if (data == null) return false
 
             // 如果banner图片不一致，返回false
-            if (!TextUtils.equals(data.urlImage!!, imageUrl)) return false
+            if (!TextUtils.equals(data.urlImage, imageUrl)) return false
 
             // 比较JumpTo对象是否一致
-            return jumpTo?.compareTo(data.jumpTo!!) == 0
+            return jumpTo?.compareTo(data.jumpTo) == 0
         }
 
         /**

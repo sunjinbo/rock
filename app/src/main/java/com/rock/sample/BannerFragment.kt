@@ -28,9 +28,9 @@ class BannerFragment : Fragment() {
         var balp = banner!!.layoutParams
         balp.width = width
         balp.height = height
-        banner?.layoutParams = balp
+        banner.layoutParams = balp
 
-        banner?.refreshData()
+        banner.refreshData()
 
         return view
     }

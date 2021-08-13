@@ -5,11 +5,9 @@ package com.rock.core.ui
 import android.content.Context
 import android.util.TypedValue
 
-class DisplayUtil {
-    companion object {
-        fun dp2px(ctx: Context, dp: Float): Int {
-            return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, ctx.resources.displayMetrics)
-                .toInt()
-        }
+object DisplayUtil {
+    fun dp2px(ctx: Context, dp: Float): Int {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, ctx.resources.displayMetrics)
+            .toInt()
     }
 }
