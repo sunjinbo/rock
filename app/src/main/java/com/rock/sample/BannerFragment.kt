@@ -23,7 +23,7 @@ class BannerFragment : Fragment() {
         val banner = view.findViewById<Banner>(R.id.banner)
         val metric = DisplayMetrics()
         activity?.windowManager?.defaultDisplay?.getMetrics(metric)
-        var width = metric.widthPixels - (DisplayUtil.dp2px(requireContext(), 16F) * 2)
+        var width = metric.widthPixels - (DisplayUtil.dip2px(requireContext(), 16F) * 2)
         var height = (width * 0.67F).toInt()
         var balp = banner!!.layoutParams
         balp.width = width

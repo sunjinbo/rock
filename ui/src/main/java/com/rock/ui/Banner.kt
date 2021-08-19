@@ -21,6 +21,7 @@ import android.view.View
 import android.view.animation.AccelerateInterpolator
 
 import com.rock.core.security.Md5Util
+import com.rock.core.ui.DisplayUtil
 import com.rock.logger.Log
 
 import java.io.ByteArrayOutputStream
@@ -141,9 +142,9 @@ class Banner : SurfaceView, SurfaceHolder.Callback, Runnable, DataLoader.Callbac
      * banner卡片的圆角半径.
      */
     var roundCorner: Float = 0F
-        get() = px2dip(field).toFloat()
+        get() = DisplayUtil.px2dip(context, field).toFloat()
         set(value) {
-            field = dip2px(value).toFloat()
+            field = DisplayUtil.dip2px(context, value).toFloat()
             postInvalidate()
         }
 
@@ -945,22 +946,6 @@ class Banner : SurfaceView, SurfaceHolder.Callback, Runnable, DataLoader.Callbac
             State.WAITING, State.TOUCHING, State.SLIPPING -> true
             else -> false
         }
-    }
-
-    /**
-     * 将dip转换成px.
-     */
-    private fun dip2px(dp: Float): Int {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.displayMetrics)
-            .toInt()
-    }
-
-    /**
-     * 将px转换成dip.
-     */
-    private fun px2dip(pxValue: Float): Int {
-        val scale: Float = resources.displayMetrics.density
-        return (pxValue / scale + 0.5f).toInt()
     }
 
     /**
