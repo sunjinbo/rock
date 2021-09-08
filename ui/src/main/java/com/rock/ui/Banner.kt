@@ -13,7 +13,6 @@ import android.os.Build
 import android.os.SystemClock
 import android.text.TextUtils
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.SurfaceHolder
 import android.view.SurfaceView
@@ -21,7 +20,7 @@ import android.view.View
 import android.view.animation.AccelerateInterpolator
 
 import com.rock.core.security.Md5Util
-import com.rock.core.ui.DisplayUtil
+import com.rock.core.metrology.DisplayUtil
 import com.rock.logger.Log
 
 import java.io.ByteArrayOutputStream

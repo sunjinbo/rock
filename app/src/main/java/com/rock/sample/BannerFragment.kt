@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.rock.core.ui.DisplayUtil
+import com.rock.core.metrology.DisplayUtil
 import com.rock.ui.Banner
 
 class BannerFragment : Fragment() {
@@ -18,17 +18,17 @@ class BannerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var view =inflater.inflate(R.layout.fragment_banner, container, false)
+        val view = inflater.inflate(R.layout.fragment_banner, container, false)
 
         val banner = view.findViewById<Banner>(R.id.banner)
         val metric = DisplayMetrics()
         activity?.windowManager?.defaultDisplay?.getMetrics(metric)
-        var width = metric.widthPixels - (DisplayUtil.dip2px(requireContext(), 16F) * 2)
-        var height = (width * 0.67F).toInt()
-        var balp = banner!!.layoutParams
-        balp.width = width
-        balp.height = height
-        banner.layoutParams = balp
+        val width = metric.widthPixels - (DisplayUtil.dip2px(requireContext(), 16F) * 2)
+        val height = (width * 0.67F).toInt()
+        val lp = banner!!.layoutParams
+        lp.width = width
+        lp.height = height
+        banner.layoutParams = lp
 
         banner.refreshData()
 

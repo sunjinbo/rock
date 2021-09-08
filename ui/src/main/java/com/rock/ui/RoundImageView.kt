@@ -5,7 +5,7 @@ package com.rock.ui
 import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
-import com.rock.core.ui.DisplayUtil
+import com.rock.core.metrology.DisplayUtil
 
 class RoundImageView : AbsImageView {
 
